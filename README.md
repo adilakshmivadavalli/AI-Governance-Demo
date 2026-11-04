@@ -1,5 +1,7 @@
 # AI Governance Teaching Platform
 
+> **Credit:** This project is based on [data-guru0/AI-GOVERNANCE-PROJECT](https://github.com/data-guru0/AI-GOVERNANCE-PROJECT) by **data-guru0**. All credit for the original design and implementation goes to the original author. This copy adds small updates for running the demo (e.g. the Groq candidate model was switched to `openai/gpt-oss-20b` because `llama-3.1-8b-instant` has been retired).
+
 ## ⚡ Quick start (4 commands)
 
 ```bash
