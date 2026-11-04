@@ -1,0 +1,11 @@
+# Shell scripts are executed inside Linux containers — they MUST keep LF line
+# endings even when the repo is cloned on Windows (CRLF breaks init_db.sh and
+# the SPIRE setup script with "bad interpreter" / "\r: command not found").
+*.sh   text eol=lf
+*.conf text eol=lf
+*.template text eol=lf
+*.rego text eol=lf
+*.py   text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+* text=auto

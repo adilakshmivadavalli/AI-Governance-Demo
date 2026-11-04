@@ -1,0 +1,30 @@
+# secrets — never commit real API keys
+.env
+.env.*
+!.env.example
+
+# generated at runtime
+compliance/reports/*.md
+!compliance/reports/.gitkeep
+operations/killswitch.log
+model-governance/_config_*.yaml
+mlflow.db
+mlflow-artifacts/
+mlruns/
+spire-data/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# large design file (keep it out of the repo; 50MB+)
+*.excalidraw

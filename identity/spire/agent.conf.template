@@ -1,0 +1,32 @@
+agent {
+    data_dir = "/opt/spire/data"
+    log_level = "INFO"
+    server_address = "spire-server"
+    server_port = "8081"
+    trust_domain = "governance.demo"
+    join_token = "__JOIN_TOKEN__"
+    socket_path = "/run/spire/sockets/agent.sock"
+    # Real bug found by actually running this: SPIRE refuses to start
+    # without either a pre-shared trust_bundle_path/trust_bundle_url or
+    # this flag ("trust_bundle_path or trust_bundle_url must be configured
+    # unless insecure_bootstrap is set"). There's no out-of-band channel
+    # here to pre-share spire-server's self-signed CA with the agent
+    # before its first connection, so it trusts the server on that first
+    # connection (TOFU) — the same simplicity tradeoff already made by
+    # using join_token attestation for this single-machine local demo, not
+    # appropriate for a real multi-node production deployment.
+    insecure_bootstrap = true
+}
+
+plugins {
+    NodeAttestor "join_token" {
+        plugin_data {}
+    }
+
+    KeyManager "memory" {
+        plugin_data {}
+    }
+    WorkloadAttestor "unix" {
+        plugin_data {}
+    }
+}
